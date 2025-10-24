@@ -1,0 +1,46 @@
+<%- include('includes/header.ejs') %>
+
+    <body>
+        <header>
+            <h1>CineVault</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/genre/Action">Action</a>
+                <a href="/genre/Sci-Fi">Sci-Fi</a>
+                <a href="/genre/Drama">Drama</a>
+            </nav>
+        </header>
+
+        <div class="movie-detail-container">
+            <div class="movie-detail-card">
+                <div class="movie-poster">
+                    <img src="<%= data.poster %>" alt="<%= data.title %> Poster">
+                </div>
+                <div class="movie-content">
+                    <h1>
+                        <%= data.title %> (
+                            <%= data.year %>)</h1>
+                    <p><strong>Genre:</strong>
+                        <%= data.genre %>
+                    </p>
+                    <p><strong>Rating:</strong> ⭐
+                        <%= data.rating %>
+                    </p>
+                    <p class="description">
+                        <%= data.description %>
+                    </p>
+
+                    <div class="movie-buttons">
+                        <a href="#" class="watch-btn">▶ Watch Now</a>
+                        <a href="#" class="download-btn">⬇ Download</a>
+                    </div>
+
+                    <a href="/" class="back-btn">← Back to Library</a>
+                </div>
+            </div>
+        </div>
+
+        <%- include('includes/footer.ejs') %>
+    </body>
+
+    </html>

@@ -1,0 +1,46 @@
+<%- include('includes/header.ejs') %>
+
+    <body>
+        <header>
+            <h1>CineVault</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/genre/Action">Action</a>
+                <a href="/genre/Sci-Fi">Sci-Fi</a>
+                <a href="/genre/Drama">Drama</a>
+            </nav>
+        </header>
+
+        <div class="search-bar">
+            <form action="/" method="get">
+                <input type="text" name="search" placeholder="Search for a movie..." />
+            </form>
+        </div>
+
+        <div class="movies-container">
+            <% for(let data of moviedata){ %>
+                <a href="/<%= data.id %>">
+                    <div class="movie-card">
+                        <img src="<%= data.poster %>" alt="<%= data.title %> Poster" />
+                        <div class="movie-info">
+                            <h2>
+                                <%= data.title %> (
+                                    <%= data.year %>)</h2>
+                            <p><b>Genre:</b>
+                                <%= data.genre %>
+                            </p>
+                            <p><b>Rating:</b> <span class="rating">⭐ <%= data.rating %></span></p>
+                            <p>
+                                <%= data.description.length > 100 ? data.description.slice(0,100) + '...' : data.description %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+
+        <%- include('includes/footer.ejs') %>
+
+    </body>
+
+    </html>
